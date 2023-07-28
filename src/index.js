@@ -1,29 +1,19 @@
-import {
-    init,
-    classModule,
-    propsModule,
-    styleModule,
-    eventListenersModule,
-    h,
-} from "snabbdom";
+import h from "./my-snabbdom/h";
+import patch from './my-snabbdom/patch'
 
-const patch = init([
-    // Init patch function with chosen modules
-    classModule, // makes it easy to toggle classes
-    propsModule, // for setting properties on DOM elements
-    styleModule, // handles styling on elements with support for animations
-    eventListenersModule, // attaches event listeners
-]);
 
-let container = document.getElementById("container");
-let btn = document.getElementById("btn");
+const container = document.getElementById('container')
+const btn = document.getElementById('btn')
+let myVnode1 = h('p',{},'你好')
 
-const myVnode1 = h("ul", {}, [
-    h("li", { key: "D" }, "D"),
-    h("li", { key: "C" }, "C"),
-    h("li", { key: "B" }, "B"),
-    h("li", { key: "A" }, "A"),
-]);
+patch(container,myVnode1)
 
-// 上树
-patch(container, myVnode1);
+let myVnode2 = h('ul',{},[
+    h('li',{},'A'),
+    h('li',{},'B'),
+    h('li',{},'C')
+])
+
+btn.onclick = () => {
+    patch(myVnode1,myVnode2)
+}
