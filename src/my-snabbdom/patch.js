@@ -1,5 +1,6 @@
 import createElement from "./createElement";
 import vnode from "./vnode";
+import patchVnode from "./patchVnode";
 /**
  *
  * @param {object} oldVnode
@@ -21,7 +22,7 @@ export default function patch(oldVnode, newVnode) {
     // 判断 oldVnode 和 newVnode 是不是同一个节点
     if (oldVnode.key === newVnode.key && oldVnode.sel === newVnode.sel) {
         console.log("是同一个节点，需要精细化比较");
-        // patchVnode(oldVnode, newVnode);
+        patchVnode(oldVnode, newVnode);
     } else {
         console.log("不是同一个节点，暴力插入新节点，删除旧节点");
         // 创建 新虚拟节点 为 DOM节点
