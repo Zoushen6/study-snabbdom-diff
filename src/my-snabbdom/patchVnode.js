@@ -1,5 +1,5 @@
 import createElement from "./createElement";
-
+import updateChildren from "./updateChildren";
 /**
  * 精细化比较两个节点 并用newVnode替换oldVnode
  * @param {*} oldVnode
@@ -26,7 +26,7 @@ export default function patchVnode(oldVnode, newVnode) {
         // 2.2 判断 oldVnode 有没有 children 属性
         if (oldVnode.children !== undefined && oldVnode.children.length > 0) {
             // oldVnode有children属性 最复杂的情况，新老节点都有children
-            // updateChildren(oldVnode.elm, oldVnode.children, newVnode.children);
+            updateChildren(oldVnode.elm, oldVnode.children, newVnode.children);
         } else {
             // oldVnode没有children属性 说明有text;  newVnode有children属性
             // 清空oldVnode的内容
@@ -38,4 +38,5 @@ export default function patchVnode(oldVnode, newVnode) {
             }
         }
     }
+    newVnode.elm = oldVnode.elm
 }

@@ -7,17 +7,22 @@ const btn = document.getElementById('btn')
 let myVnode1 = h('ul',{},[
     h('li',{key: 'A'},'A'),
     h('li',{key: 'B'},'B'),
-    h('li',{key: 'C'},'C')
+    h('li',{key: 'C'},'C'),
+    h('li',{key: 'D'},'D'),
+    h('li',{key: 'E'},'E'),
 ])
 
 patch(container,myVnode1)
 
+//新节点
 let myVnode2 = h('ul',{},[
+    h('li',{key: 'Q'},'Q'),
     h('li',{key: 'A'},'A'),
     h('li',{key: 'B'},'B'),
-    h('li',{key: 'M'},'M'),
-    h('li',{key: 'N'},'N'),
-    h('li',{key: 'C'},'C')
+    h('li',{key: 'C'},'C'),
+    h('li',{key: 'D'},'D'),
+    h('li',{key: 'E'},'E'),
+
 ])
 
 btn.onclick = () => {
