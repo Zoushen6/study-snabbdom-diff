@@ -40,4 +40,4 @@ btn.onclick = () => {
 }
 ```
 
-### 修改myVnode1与myVnode2的解构，点击转换按钮查看
+##### 修改myVnode1与myVnode2的结构，点击转换按钮查看
